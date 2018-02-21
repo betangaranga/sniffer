@@ -19,7 +19,7 @@ void EscribirTipoDireccion(FILE *logfile,u_char *dir){
                 /* code */
                 fprintf(logfile,"\t\t\tDIFUSION\n");
         }
-        else if (dir[0]==0x00) {
+        else if (dir[0]%2==0) {
                 /* code */
                 fprintf(logfile,"\t\t\tUNIDIFUSION\n");
 
@@ -44,10 +44,10 @@ void EscribirTrama(FILE *logfile,const u_char *buffer,int tamano){
                         fprintf(logfile, "\t\tIPv4");
                         fprintf(logfile, "  \t\t%d",tamano);
                         if(tamano-14>90) {
-                                fprintf(logfile, "  \t%d",tamano-14);
+                                fprintf(logfile, "  \t%d",tamano-sizeof(eth));
                         }
                         else{
-                                fprintf(logfile, "  \t\t%d",tamano-14);
+                                fprintf(logfile, "  \t\t%d",tamano-sizeof(eth));
                         }
                         EscribirTipoDireccion(logfile,eth->ether_dhost);
                         cont_ipv4++;
@@ -58,10 +58,10 @@ void EscribirTrama(FILE *logfile,const u_char *buffer,int tamano){
                         fprintf(logfile, "\t\tIPv6");
                         fprintf(logfile, "  \t\t%d",tamano);
                         if(tamano-14>86) {
-                                fprintf(logfile, "  \t%d",tamano-14);
+                                fprintf(logfile, "  \t%d",tamano-sizeof(eth));
                         }
                         else{
-                                fprintf(logfile, "  \t\t%d",tamano-14);
+                                fprintf(logfile, "  \t\t%d",tamano-sizeof(eth));
                         }
                         EscribirTipoDireccion(logfile,eth->ether_dhost);
                         cont_ipv6++;
@@ -73,10 +73,10 @@ void EscribirTrama(FILE *logfile,const u_char *buffer,int tamano){
                         fprintf(logfile, "\t\tARP");
                         fprintf(logfile, "  \t\t%d",tamano);
                         if(tamano-14>86) {
-                                fprintf(logfile, "  \t%d",tamano-14);
+                                fprintf(logfile, "  \t%d",tamano-sizeof(eth));
                         }
                         else{
-                                fprintf(logfile, "  \t\t%d",tamano-14);
+                                fprintf(logfile, "  \t\t%d",tamano-sizeof(eth));
                         }                        EscribirTipoDireccion(logfile,eth->ether_dhost);
                         cont_arp++;
                         break;
@@ -87,10 +87,10 @@ void EscribirTrama(FILE *logfile,const u_char *buffer,int tamano){
                         fprintf(logfile, "\t\tFLUJO ETHERNET");
                         fprintf(logfile, "  \t\t%d",tamano);
                         if(tamano-14>86) {
-                                fprintf(logfile, "  \t%d",tamano-14);
+                                fprintf(logfile, "  \t%d",tamano-sizeof(eth));
                         }
                         else{
-                                fprintf(logfile, "  \t\t%d",tamano-14);
+                                fprintf(logfile, "  \t\t%d",tamano-sizeof(eth));
                         }                        EscribirTipoDireccion(logfile,eth->ether_dhost);
                         cont_flujo++;
                         break;
@@ -101,10 +101,10 @@ void EscribirTrama(FILE *logfile,const u_char *buffer,int tamano){
                         fprintf(logfile, " \t\tSeguridad MAC");
                         fprintf(logfile, "  \t\t%d",tamano);
                         if(tamano-14>86) {
-                                fprintf(logfile, "  \t%d",tamano-14);
+                                fprintf(logfile, "  \t%d",tamano-sizeof(eth));
                         }
                         else{
-                                fprintf(logfile, "  \t\t%d",tamano-14);
+                                fprintf(logfile, "  \t\t%d",tamano-sizeof(eth));
                         }                        EscribirTipoDireccion(logfile,eth->ether_dhost);
                         cont_seg++;
                         break;
