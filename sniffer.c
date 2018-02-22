@@ -42,12 +42,12 @@ void EscribirTrama(FILE *logfile,const u_char *buffer,int tamano){
                         fprintf(logfile, "\t\t%.2X-%.2X-%.2X-%.2X-%.2X-%.2X ", eth->ether_dhost[0], eth->ether_dhost[1], eth->ether_dhost[2], eth->ether_dhost[3], eth->ether_dhost[4], eth->ether_dhost[5] );
                         fprintf(logfile, " \t%.2X-%.2X-%.2X-%.2X-%.2X-%.2X ", eth->ether_shost[0], eth->ether_shost[1], eth->ether_shost[2], eth->ether_shost[3], eth->ether_shost[4], eth->ether_shost[5] );
                         fprintf(logfile, "\t\tIPv4");
-                        if(tamano>=64) {
+                        if(tamano>=60) {
                                 fprintf(logfile, "  \t%d",tamano);
                                 fprintf(logfile, "  \t\t%d",tamano-14-20);
                         }
                         else{
-                                fprintf(logfile, "  \t64");
+                                fprintf(logfile, "  \t60");
                                 fprintf(logfile, "  \t\t30");
 
                         }
@@ -58,12 +58,12 @@ void EscribirTrama(FILE *logfile,const u_char *buffer,int tamano){
                         fprintf(logfile, "\t\t%.2X-%.2X-%.2X-%.2X-%.2X-%.2X ", eth->ether_dhost[0], eth->ether_dhost[1], eth->ether_dhost[2], eth->ether_dhost[3], eth->ether_dhost[4], eth->ether_dhost[5] );
                         fprintf(logfile, " \t%.2X-%.2X-%.2X-%.2X-%.2X-%.2X ", eth->ether_shost[0], eth->ether_shost[1], eth->ether_shost[2], eth->ether_shost[3], eth->ether_shost[4], eth->ether_shost[5] );
                         fprintf(logfile, "\t\tIPv6");
-                        if(tamano>=64) {
+                        if(tamano>=60) {
                                 fprintf(logfile, "  \t\t%d",tamano);
                                 fprintf(logfile, "  \t%d",tamano-14);
                         }
                         else{
-                                fprintf(logfile, "  \t\t64");
+                                fprintf(logfile, "  \t\t60");
                                 fprintf(logfile, "  \t\t50");
 
                         }
@@ -75,12 +75,12 @@ void EscribirTrama(FILE *logfile,const u_char *buffer,int tamano){
                         fprintf(logfile, "\t\t%.2X-%.2X-%.2X-%.2X-%.2X-%.2X ", eth->ether_dhost[0], eth->ether_dhost[1], eth->ether_dhost[2], eth->ether_dhost[3], eth->ether_dhost[4], eth->ether_dhost[5] );
                         fprintf(logfile, " \t%.2X-%.2X-%.2X-%.2X-%.2X-%.2X ", eth->ether_shost[0], eth->ether_shost[1], eth->ether_shost[2], eth->ether_shost[3], eth->ether_shost[4], eth->ether_shost[5] );
                         fprintf(logfile, "\t\tARP");
-                        if(tamano>=64) {
+                        if(tamano>=60) {
                                 fprintf(logfile, "  \t%d",tamano);
                                 fprintf(logfile, "  \t\t%d",tamano-14);
                         }
                         else{
-                                fprintf(logfile, "  \t64");
+                                fprintf(logfile, "  \t60");
                                 fprintf(logfile, "  \t\t50");
 
                         }            EscribirTipoDireccion(logfile,eth->ether_dhost);
@@ -91,12 +91,12 @@ void EscribirTrama(FILE *logfile,const u_char *buffer,int tamano){
                         fprintf(logfile, "\t\t%.2X-%.2X-%.2X-%.2X-%.2X-%.2X ", eth->ether_dhost[0], eth->ether_dhost[1], eth->ether_dhost[2], eth->ether_dhost[3], eth->ether_dhost[4], eth->ether_dhost[5] );
                         fprintf(logfile, " \t%.2X-%.2X-%.2X-%.2X-%.2X-%.2X ", eth->ether_shost[0], eth->ether_shost[1], eth->ether_shost[2], eth->ether_shost[3], eth->ether_shost[4], eth->ether_shost[5] );
                         fprintf(logfile, "\t\tFLUJO ETHERNET");
-                        if(tamano>=64) {
+                        if(tamano>=60) {
                                 fprintf(logfile, "  \t\t%d",tamano);
                                 fprintf(logfile, "  \t%d",tamano-14);
                         }
                         else{
-                                fprintf(logfile, "  \t\t64");
+                                fprintf(logfile, "  \t\t60");
                                 fprintf(logfile, "  \t\t50");
 
                         }                 EscribirTipoDireccion(logfile,eth->ether_dhost);
@@ -107,12 +107,12 @@ void EscribirTrama(FILE *logfile,const u_char *buffer,int tamano){
                         fprintf(logfile, "\t\t%.2X-%.2X-%.2X-%.2X-%.2X-%.2X ", eth->ether_dhost[0], eth->ether_dhost[1], eth->ether_dhost[2], eth->ether_dhost[3], eth->ether_dhost[4], eth->ether_dhost[5] );
                         fprintf(logfile, " \t%.2X-%.2X-%.2X-%.2X-%.2X-%.2X ", eth->ether_shost[0], eth->ether_shost[1], eth->ether_shost[2], eth->ether_shost[3], eth->ether_shost[4], eth->ether_shost[5] );
                         fprintf(logfile, " \t\tSeguridad MAC");
-                        if(tamano>=64) {
+                        if(tamano>=60) {
                                 fprintf(logfile, "  \t\t%d",tamano);
                                 fprintf(logfile, "  \t%d",tamano-14);
                         }
                         else{
-                                fprintf(logfile, "  \t\t64");
+                                fprintf(logfile, "  \t\t60");
                                 fprintf(logfile, "  \t\t50");
 
                         }                   EscribirTipoDireccion(logfile,eth->ether_dhost);
